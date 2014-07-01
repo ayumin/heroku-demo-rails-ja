@@ -5,11 +5,13 @@
 ### 1. デモアカウントの作成方法
 
 Herokuのアカウントを持っていない場合、以下のURLから@salesforce.comのメールアドレスをつかってサインアップしてください。
+
 [https://id.heroku.com/signup](https://id.heroku.com/signup)
 
 ### 2. Heroku Toolbeltのインストール
 
 以下のURLからHerokuの開発ツールをインストールしてください。
+
 [https://toolbelt.heroku.com/](https://toolbelt.heroku.com/)
 
 ### 3. アカウント情報の入力
@@ -40,7 +42,7 @@ Platform BoothではForce.comとHerokuアプリの接続について説明し、
     cd
     mkdir demo
     cd demo
-    git clone https://github.com/xxxx/jp-heroku-demo-ruby
+    git clone https://github.com/ayumin/heroku-demo-rails-ja.git
     cd jp-heroku-demo-ruby
 
 以下のコマンドを実行し、アプリをローカルで実行します。
@@ -60,19 +62,24 @@ Platform BoothではForce.comとHerokuアプリの接続について説明し、
 中央下部にある「Create new app」をクリックします。
 
 作成するアプリの名前をアルファベットとハイフン、数字の組み合わせで入力します。
+
 - 例. demo-app-201407
 
 ダイアログ右下の「Create app」をクリックしてアプリを作成します。
+
 次のダイアログが表示されたら、右下の「Finish up」をクリックします。
 
 ターミナルで以下のコマンドを実行します。（ディレクトリが ~/demo/jp-heroku-demo-rubyであることを確認）
+
     git remote add heroku git@heroku.com:<作成したアプリの名前>.git
     git push heroku master
 
 アプリケーションのソースコードがHerokuに移送され、実行環境の構築が自動的に行われます。以下のコマンドを実行し、Heroku側のデータベースを初期化します。
+
     heroku run rake:db migrate
 
 以下のコマンドを実行し、Heroku上で実行しているアプリをブラウザで開きます。
+
     heroku open
 
 ### 3. アプリにアドオンを追加する
