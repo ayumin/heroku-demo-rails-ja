@@ -1,0 +1,37 @@
+<div class="container">
+  <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http://<%=request.host%>:<%=request.port%>">
+  <div class="row">
+    <h2>新しいタスクを追加: </h2>
+    <%= render 'form' %>
+  </div>
+
+  <% if @todos.count > 0 %>
+  <hr>
+  <div class="row">
+    <h1>やることリスト</h1>
+
+    <table id="task_list">
+      <thead>
+        <tr>
+          <th>タスク</th>
+          <th>完了状態</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @todos.each do |todo| %>
+          <tr>
+            <td width="250px"><%= todo.name %></td>
+            <td width="150px"><%= todo.finished %></td>
+            <td><%= link_to '完了', todo, method: :get, class: "btn btn-success" %></td>
+            <td><%= link_to '削除', todo, method: :delete, data: { confirm: 'この削除しますか？' }, class: "btn btn-danger" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <% end %>
+</div>
